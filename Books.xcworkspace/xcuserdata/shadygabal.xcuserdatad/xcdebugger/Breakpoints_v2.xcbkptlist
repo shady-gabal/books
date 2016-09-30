@@ -10,139 +10,59 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Books/BookStore.swift"
-            timestampString = "496869940.526992"
+            timestampString = "496894724.727865"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "fetchBooks(callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Books/BookStore.swift"
+            timestampString = "496887872.635532"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "fetchBooks()"
+            landmarkName = "fetchBooks(callback:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Books.BookStore.(fetchBooks () -&gt; ()).(closure #1)"
+                  symbolName = "Books.BookStore.fetchBooks (callback : () -&gt; ()) -&gt; ()"
                   moduleName = "Books"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/BookStore.swift"
-                  timestampString = "496870075.141169"
+                  timestampString = "496895943.018298"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "24">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Books.BookStore.(fetchBooks () -&gt; ()).(closure #2)"
+                  symbolName = "Books.BookStore.(fetchBooks (callback : () -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "Books"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/BookStore.swift"
-                  timestampString = "496870075.144126"
+                  timestampString = "496895943.021653"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Books/BookStore.swift"
-            timestampString = "496869940.526992"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "fetchBooks()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Books.BookStore.fetchBooks () -&gt; ()"
-                  moduleName = "Books"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/BookStore.swift"
-                  timestampString = "496870075.149431"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "204">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Books.BookStore.(fetchBooks () -&gt; ()).(closure #2)"
-                  moduleName = "Books"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/BookStore.swift"
-                  timestampString = "496870075.151974"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Books/BookStore.swift"
-            timestampString = "496869940.526992"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "fetchBooks()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Books.BookStore.fetchBooks () -&gt; ()"
-                  moduleName = "Books"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/BookStore.swift"
-                  timestampString = "496870075.157383"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Books.BookStore.(fetchBooks () -&gt; ()).(closure #1)"
-                  moduleName = "Books"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/BookStore.swift"
-                  timestampString = "496870075.16003"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -177,6 +97,38 @@
             endingLineNumber = "38"
             landmarkName = "callback(response:responseObject:error:)"
             landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Books/LibraryTableViewController.swift"
+            timestampString = "496896193.334575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Books/LibraryTableViewController.swift"
+            timestampString = "496896193.334575"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "findBook(atIndexPath:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

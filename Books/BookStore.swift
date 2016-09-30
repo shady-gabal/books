@@ -21,14 +21,28 @@ class BookStore: NSObject {
     private var books:[Book] = []
     
     override init() {
+        
     }
     
-    public func fetchBooks(){
-        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: "/books", method: NetworkManager.NetworkMethod.GET, parameters: [:], successCallback: { (responseObject:AnyObject) -> Void in
+    public func fetchBooks(callback: @escaping () -> Void = {() in }){
+        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: "/books", method: NetworkManager.NetworkMethod.GET, parameters: [:], successCallback: { (responseObject:Any?) -> Void in
+            
+            if let booksArray = responseObject as? Array<Any> {
+                for bookDict in booksArray {
+//                    print(Mirror(reflecting: bookDict).subjectType)
+                    
+                    if let bookData = bookDict as? NSDictionary{
+                        let newBook:Book = Book(bookData)
+                        self.books.append(newBook)
+                    }
+                }
+            }
+            
+            callback()
             
             
             }, errorCallback: { (statusCode: Int) -> Void in
-                
+                print("Network fetched failed with status code %d", statusCode)
             })
     }
     

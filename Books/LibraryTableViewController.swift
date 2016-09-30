@@ -8,17 +8,18 @@
 
 import UIKit
 
+
 class LibraryTableViewController: UITableViewController {
+    static let CellReuseIdentifier = "UITableViewCell"
+    static let CellHeight:CGFloat = 75.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blue
-        BookStore.sharedInstance.fetchBooks()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: LibraryTableViewController.CellReuseIdentifier)
+        
+        BookStore.sharedInstance.fetchBooks(callback: {() -> Void in
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,22 +30,45 @@ class LibraryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return BookStore.sharedInstance.allBooks.count
     }
-
-    /*
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return LibraryTableViewController.CellHeight
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: LibraryTableViewController.CellReuseIdentifier, for: indexPath)
+        let book:Book? = findBook(atIndexPath: indexPath)
+        if book != nil{
+            cell.detailTextLabel?.text = book?.author
+            cell.textLabel?.text = book?.title
+        }
 
         return cell
     }
-    */
+ 
+    func findBook(atIndexPath: IndexPath) -> Book?{
+        let sec = atIndexPath.section
+        let row = atIndexPath.row
+        if sec == 0 && row < BookStore.sharedInstance.allBooks.count{
+            return BookStore.sharedInstance.allBooks[row] as? Book
+        }
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let book:Book? = findBook(atIndexPath: indexPath)
+        if book == nil{
+            return
+        }
+            
+        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -28,7 +28,7 @@ class NetworkManager: NSObject {
     }
     
     
-    public func networkRequest(urlString: String, method: NetworkMethod, parameters: Dictionary<String, AnyObject>!, successCallback : @escaping (AnyObject) -> Void, errorCallback: @escaping (Int) -> Void){
+    public func networkRequest(urlString: String, method: NetworkMethod, parameters: NSDictionary!, successCallback : @escaping (Any?) -> Void, errorCallback: @escaping (Int) -> Void){
         
         var error:NSError?
         
@@ -43,12 +43,7 @@ class NetworkManager: NSObject {
                 
             }
             else{
-                if let jsonResult = responseObject as? Dictionary<String, AnyObject> {
-                    successCallback(jsonResult)
-                }
-                else{
-                    successCallback(responseObject)
-                }
+                successCallback(responseObject)
             }
             
         }
@@ -60,7 +55,7 @@ class NetworkManager: NSObject {
     
 //
     
-    public func networkRequestToLibrary(urlSuffix: String, method: NetworkMethod, parameters: Dictionary<String, AnyObject>, successCallback : @escaping (AnyObject) -> Void, errorCallback: @escaping (Int) -> Void) {
+    public func networkRequestToLibrary(urlSuffix: String, method: NetworkMethod, parameters: NSDictionary, successCallback : @escaping (Any?) -> Void, errorCallback: @escaping (Int) -> Void) {
         
         let baseUrl = "https://prolific-interview.herokuapp.com/57e18ffd52f66d0009aa75eb"
         let url = baseUrl + urlSuffix

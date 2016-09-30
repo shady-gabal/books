@@ -13,11 +13,21 @@ class Book: NSObject {
     var title: String?
     var author: String?
     var publisher: String?
-    var categories: [String]?
+    var categories: String?
     var lastCheckedOut : String?
     var lastCheckedOutBy : String?
     var url : String?
     
     
+    init(_ data:NSDictionary){
+        self.author = data["author"] as? String
+        self.title = data["title"] as? String
+        self.lastCheckedOut = data["lastCheckedOut"] as? String
+        self.lastCheckedOutBy = data["lastCheckedOutBy"] as? String
+        self.publisher = data["publisher"] as? String
+        self.url = data["url"] as? String
+        self.categories = data["categories"] as? String
+        
 
+    }
 }
