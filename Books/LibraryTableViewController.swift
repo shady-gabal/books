@@ -10,12 +10,13 @@ import UIKit
 
 
 class LibraryTableViewController: UITableViewController {
-    static let CellReuseIdentifier = "UITableViewCell"
-    static let CellHeight:CGFloat = 75.0
+    static let LibraryCellReuseIdentifier = "LibraryTableViewCell"
+    static let CellHeight:CGFloat = 80.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: LibraryTableViewController.CellReuseIdentifier)
+        let nib:UINib = UINib.init(nibName: "LibraryTableViewCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier)
         
         BookStore.sharedInstance.fetchBooks(callback: {() -> Void in
             self.tableView.reloadData()
@@ -42,11 +43,12 @@ class LibraryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: LibraryTableViewController.CellReuseIdentifier, for: indexPath)
+        let cell:LibraryTableViewCell = tableView.dequeueReusableCell(withIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier, for: indexPath) as! LibraryTableViewCell
         let book:Book? = findBook(atIndexPath: indexPath)
         if book != nil{
-            cell.detailTextLabel?.text = book?.author
-            cell.textLabel?.text = book?.title
+            cell.configure(withBook: book!)
+//            cell.detailTextLabel?.text = book?.author
+//            cell.textLabel?.text = book?.title
         }
 
         return cell
@@ -66,8 +68,8 @@ class LibraryTableViewController: UITableViewController {
         if book == nil{
             return
         }
-            
-        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+        let detail:BookDetailViewController = BookDetailViewController(withBook: book)
+        self.navigationController?.pushViewController(detail, animated: true)
     }
 
     /*

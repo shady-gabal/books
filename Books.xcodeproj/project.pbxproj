@@ -20,6 +20,8 @@
 		97D628CB1D9C8DAA005AABFD /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D628CA1D9C8DAA005AABFD /* Book.swift */; };
 		97D628CE1D9E097A005AABFD /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D628CC1D9E097A005AABFD /* BookDetailViewController.swift */; };
 		97D628CF1D9E097A005AABFD /* BookDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D628CD1D9E097A005AABFD /* BookDetailViewController.xib */; };
+		97D628D21D9E2D57005AABFD /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D628D01D9E2D57005AABFD /* LibraryTableViewCell.swift */; };
+		97D628D31D9E2D57005AABFD /* LibraryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D628D11D9E2D57005AABFD /* LibraryTableViewCell.xib */; };
 		AA7935581CD30AF4CE70A01B /* Pods_BooksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CAF22F5DB09369103CC2364 /* Pods_BooksTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,8 @@
 		97D628CA1D9C8DAA005AABFD /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		97D628CC1D9E097A005AABFD /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		97D628CD1D9E097A005AABFD /* BookDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailViewController.xib; sourceTree = "<group>"; };
+		97D628D01D9E2D57005AABFD /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
+		97D628D11D9E2D57005AABFD /* LibraryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LibraryTableViewCell.xib; sourceTree = "<group>"; };
 		9CAF22F5DB09369103CC2364 /* Pods_BooksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BooksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A768584BDC05D60CE349F497 /* Pods-BooksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BooksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BooksTests/Pods-BooksTests.release.xcconfig"; sourceTree = "<group>"; };
 		C3B40E217DFCC10F83FC8D68 /* Pods_BooksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BooksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,12 +152,14 @@
 			isa = PBXGroup;
 			children = (
 				975D7F7F1D9C482400D121DD /* AppDelegate.swift */,
-				975D7FAD1D9C497800D121DD /* LibraryTableViewController.swift */,
 				97D628CA1D9C8DAA005AABFD /* Book.swift */,
 				975D7FAF1D9C7AB300D121DD /* BookStore.swift */,
 				97D628C71D9C7C0C005AABFD /* NetworkManager.swift */,
 				97D628CC1D9E097A005AABFD /* BookDetailViewController.swift */,
 				97D628CD1D9E097A005AABFD /* BookDetailViewController.xib */,
+				975D7FAD1D9C497800D121DD /* LibraryTableViewController.swift */,
+				97D628D01D9E2D57005AABFD /* LibraryTableViewCell.swift */,
+				97D628D11D9E2D57005AABFD /* LibraryTableViewCell.xib */,
 				975D7F861D9C482400D121DD /* Assets.xcassets */,
 				975D7F881D9C482400D121DD /* LaunchScreen.storyboard */,
 				975D7F8B1D9C482400D121DD /* Info.plist */,
@@ -298,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				975D7F8A1D9C482400D121DD /* LaunchScreen.storyboard in Resources */,
+				97D628D31D9E2D57005AABFD /* LibraryTableViewCell.xib in Resources */,
 				975D7F871D9C482400D121DD /* Assets.xcassets in Resources */,
 				97D628CF1D9E097A005AABFD /* BookDetailViewController.xib in Resources */,
 			);
@@ -448,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97D628C81D9C7C0C005AABFD /* NetworkManager.swift in Sources */,
+				97D628D21D9E2D57005AABFD /* LibraryTableViewCell.swift in Sources */,
 				975D7FAE1D9C497800D121DD /* LibraryTableViewController.swift in Sources */,
 				97D628CE1D9E097A005AABFD /* BookDetailViewController.swift in Sources */,
 				975D7FB01D9C7AB300D121DD /* BookStore.swift in Sources */,
