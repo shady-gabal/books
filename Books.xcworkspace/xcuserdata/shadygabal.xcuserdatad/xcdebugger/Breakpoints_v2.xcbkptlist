@@ -10,13 +10,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Books/BookStore.swift"
-            timestampString = "496894724.727865"
+            timestampString = "497126912.621847"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "fetchBooks(callback:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Books/CheckoutNameViewController.swift"
+            timestampString = "497130093.850406"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "CheckoutNameViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Books.CheckoutNameViewController.(keyboardDidShow in _C95AF8D1B5BAA6E7591A55F9FDDBB667) (__ObjC.NSNotification) -&gt; ()"
+                  moduleName = "Books"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/CheckoutNameViewController.swift"
+                  timestampString = "497067036.552024"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Books.CheckoutNameViewController.(keyboardDidShow in _C95AF8D1B5BAA6E7591A55F9FDDBB667) (__ObjC.NSNotification) -&gt; ()"
+                  moduleName = "Books"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/CheckoutNameViewController.swift"
+                  timestampString = "497067036.555248"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "920">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

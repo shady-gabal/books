@@ -6,9 +6,10 @@
 //  Copyright © 2016 Shady Gabal. All rights reserved.
 //
 
-#ifndef AFNetworking_Bridge_h
-#define AFNetworking_Bridge_h
+#ifndef ObjC_Bridge_h
+#define ObjC_Bridge_h
 
 #import <AFNetworking/AFNetworking.h>
+#import "SREButton.h"
 
-#endif /* AFNetworking_Bridge_h */
+#endif /* ObjC_Bridge_h */

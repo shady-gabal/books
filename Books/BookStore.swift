@@ -29,8 +29,6 @@ class BookStore: NSObject {
             
             if let booksArray = responseObject as? Array<Any> {
                 for bookDict in booksArray {
-//                    print(Mirror(reflecting: bookDict).subjectType)
-                    
                     if let bookData = bookDict as? NSDictionary{
                         let newBook:Book = Book(bookData)
                         self.books.append(newBook)
@@ -46,4 +44,24 @@ class BookStore: NSObject {
             })
     }
     
+    public func checkoutBook(_ book:Book?, callback:@escaping (Bool) -> Void = {(success:Bool) -> Void in}){
+        if book == nil || User.sharedInstance.name == nil{
+            return callback(false)
+        }
+        
+        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: (book?.url)!, method: NetworkManager.NetworkMethod.PUT, parameters: ["lastCheckedOutBy": User.sharedInstance.name], successCallback: { (responseObject:Any?) -> Void in
+            
+            if let data = responseObject as? NSDictionary{
+                book?.update(withData: data)
+            }
+            
+            callback(true)
+            
+            
+            }, errorCallback: { (statusCode: Int) -> Void in
+                print("Network fetched failed with status code %d", statusCode)
+                callback(false)
+        })
+        
+    }
 }

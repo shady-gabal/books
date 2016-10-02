@@ -15,7 +15,7 @@ class BookDetailViewController: UIViewController {
     @IBOutlet var titleLabel:UILabel?
     @IBOutlet var lastCheckedOutByLabel:UILabel?
     @IBOutlet var publisherLabel:UILabel?
-    @IBOutlet var checkoutButton:UIButton?
+    @IBOutlet var checkoutButton:SREButton?
 
     var book:Book?
     
@@ -65,9 +65,28 @@ class BookDetailViewController: UIViewController {
     }
     
     @IBAction func checkoutButtonTapped(_ sender: AnyObject) {
-        let nameController:CheckoutNameViewController = CheckoutNameViewController(withBook: self.book)
-//        let nameNav:UINavigationController = UINavigationController(rootViewController: nameController)
-        self.present(nameController, animated: true, completion: nil)
+        if User.sharedInstance.name == nil{
+            let nameController:CheckoutNameViewController = CheckoutNameViewController(withBook: self.book)
+            self.present(nameController, animated: true, completion: nil)
+        }
+        else{
+            checkoutBook()
+        }
+    }
+    
+    func checkoutBook(){
+        self.checkoutButton?.showActivityIndicatorView()
+        
+        BookStore.sharedInstance.checkoutBook(book, callback: {(succeeded: Bool) -> Void in
+            self.checkoutButton?.hideActivityIndicatorView()
+            
+            if succeeded{
+                self.checkoutButton?.setTitle("Checked Out", for: UIControlState.normal)
+            }
+            else{
+                
+            }
+        })
     }
 
 }

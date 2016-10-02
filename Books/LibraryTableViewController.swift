@@ -13,7 +13,6 @@ class LibraryTableViewController: UITableViewController {
     static let LibraryCellReuseIdentifier = "LibraryTableViewCell"
     static let CellHeight:CGFloat = 80.0
 
-    private var prototypeCell:LibraryTableViewCell!
 //    var prototypeCell:LibraryTableViewCell!{
 //        get {
 //
@@ -32,13 +31,16 @@ class LibraryTableViewController: UITableViewController {
         let cellNib:UINib = UINib.init(nibName: "LibraryTableViewCell", bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier)
         
-       prototypeCell = self.tableView.dequeueReusableCell(withIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier) as! LibraryTableViewCell
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = LibraryTableViewController.CellHeight
         
         BookStore.sharedInstance.fetchBooks(callback: {() -> Void in
             self.tableView.reloadData()
         })
+    }
+    
+    private func addedName(){
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -21,15 +21,20 @@ class Book: NSObject {
     
     
     init(_ data:NSDictionary){
-        self.author = data["author"] as? String
-        self.title = data["title"] as? String
-        self.lastCheckedOutBy = data["lastCheckedOutBy"] as? String
-        self.publisher = data["publisher"] as? String
-        self.url = data["url"] as? String
-        self.categories = data["categories"] as? String
+        super.init()
+        update(withData: data)
+    }
+    
+    func update(withData: NSDictionary){
+        self.author = withData["author"] as? String
+        self.title = withData["title"] as? String
+        self.lastCheckedOutBy = withData["lastCheckedOutBy"] as? String
+        self.publisher = withData["publisher"] as? String
+        self.url = withData["url"] as? String
+        self.categories = withData["categories"] as? String
         
         
-        if let lastCheckedOutDateString = data["lastCheckedOut"] as? String{
+        if let lastCheckedOutDateString = withData["lastCheckedOut"] as? String{
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
             
@@ -42,6 +47,5 @@ class Book: NSObject {
         else{
             self.lastCheckedOutDescription = "Never checked out"
         }
-
     }
 }
