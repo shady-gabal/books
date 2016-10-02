@@ -32,7 +32,6 @@ class BookDetailViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     init(withBook : Book!){
@@ -53,15 +52,22 @@ class BookDetailViewController: UIViewController {
         }
         self.scrollView?.contentSize = contentRect.size
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Detail"
+        let shareButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.action, target: self, action: #selector(BookDetailViewController.shareButtonTapped))
+        self.navigationItem.rightBarButtonItem = shareButton
     }
-    */
+    
+    @objc private func shareButtonTapped(){
+        
+    }
+    
+    @IBAction func checkoutButtonTapped(_ sender: AnyObject) {
+        let nameController:CheckoutNameViewController = CheckoutNameViewController(withBook: self.book)
+//        let nameNav:UINavigationController = UINavigationController(rootViewController: nameController)
+        self.present(nameController, animated: true, completion: nil)
+    }
 
 }

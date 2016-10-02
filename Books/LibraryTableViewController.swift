@@ -13,10 +13,28 @@ class LibraryTableViewController: UITableViewController {
     static let LibraryCellReuseIdentifier = "LibraryTableViewCell"
     static let CellHeight:CGFloat = 80.0
 
+    private var prototypeCell:LibraryTableViewCell!
+//    var prototypeCell:LibraryTableViewCell!{
+//        get {
+//
+//        }
+//    }
+    
+//    private func prototypeCell() -> LibraryTableViewCell!{
+//        if _prototypeCell == nil{
+//
+//        }
+//        return _prototypeCell
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib:UINib = UINib.init(nibName: "LibraryTableViewCell", bundle: nil)
-        self.tableView.register(nib, forCellReuseIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier)
+        let cellNib:UINib = UINib.init(nibName: "LibraryTableViewCell", bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier)
+        
+       prototypeCell = self.tableView.dequeueReusableCell(withIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier) as! LibraryTableViewCell
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = LibraryTableViewController.CellHeight
         
         BookStore.sharedInstance.fetchBooks(callback: {() -> Void in
             self.tableView.reloadData()
@@ -37,18 +55,12 @@ class LibraryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return BookStore.sharedInstance.allBooks.count
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return LibraryTableViewController.CellHeight
-    }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:LibraryTableViewCell = tableView.dequeueReusableCell(withIdentifier: LibraryTableViewController.LibraryCellReuseIdentifier, for: indexPath) as! LibraryTableViewCell
         let book:Book? = findBook(atIndexPath: indexPath)
         if book != nil{
             cell.configure(withBook: book!)
-//            cell.detailTextLabel?.text = book?.author
-//            cell.textLabel?.text = book?.title
         }
 
         return cell
@@ -70,6 +82,17 @@ class LibraryTableViewController: UITableViewController {
         }
         let detail:BookDetailViewController = BookDetailViewController(withBook: book)
         self.navigationController?.pushViewController(detail, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Books"
+        let addButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(LibraryTableViewController.addButtonTapped))
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+    
+    @objc private func addButtonTapped(){
+    
     }
 
     /*

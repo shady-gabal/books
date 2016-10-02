@@ -31,8 +31,10 @@
                 <constraints>
                     <constraint firstItem="bTS-at-1RP" firstAttribute="leading" secondItem="8GL-qS-RqK" secondAttribute="leading" id="4Le-uF-qRZ"/>
                     <constraint firstItem="8GL-qS-RqK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="6" id="FjO-3h-Oi2"/>
+                    <constraint firstItem="bTS-at-1RP" firstAttribute="width" secondItem="8GL-qS-RqK" secondAttribute="width" id="TM4-p4-Pt2"/>
                     <constraint firstItem="bTS-at-1RP" firstAttribute="top" secondItem="8GL-qS-RqK" secondAttribute="bottom" constant="8" id="ikn-4h-3vI"/>
                     <constraint firstItem="8GL-qS-RqK" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.85" id="pBR-z4-Ffh"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="bTS-at-1RP" secondAttribute="bottom" constant="7" id="s6m-9l-YgZ"/>
                     <constraint firstItem="8GL-qS-RqK" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="tyP-zh-pN4"/>
                 </constraints>
             </tableViewCellContentView>

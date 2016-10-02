@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckoutNameViewController" customModule="Books" customModuleProvider="target">
+            <connections>
+                <outlet property="bookTitleLabel" destination="GpV-2r-2xK" id="vH4-II-IsN"/>
+                <outlet property="checkoutButton" destination="1Ln-Gd-Y8y" id="VvX-SG-Mbf"/>
+                <outlet property="nameField" destination="20a-cx-t7U" id="9Sk-ji-kiE"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="20a-cx-t7U">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="20a-cx-t7U" secondAttribute="height" multiplier="77:17" id="YXv-gE-oNO"/>
+                    </constraints>
+                    <color key="textColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ln-Gd-Y8y">
+                    <color key="backgroundColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="129" id="9yU-iD-1Is"/>
+                        <constraint firstAttribute="height" constant="51" id="YJt-NV-DeH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                    <state key="normal" title="Finish">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="checkoutButtonTapped:" destination="-1" eventType="touchUpInside" id="WPE-21-JBc"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! Before you can checkout" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sA-fq-CyA">
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="we'll need your name." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcU-wr-AcC">
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Android Programming" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GpV-2r-2xK">
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="p4k-5J-HIW"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                    <color key="textColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BYZ-cg-K1J">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="73" id="8V5-bB-2tU"/>
+                        <constraint firstAttribute="height" constant="32" id="Rgz-mp-OdZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                    <state key="normal" title="X">
+                        <color key="titleColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtonTapped" destination="-1" eventType="touchUpInside" id="gi7-Ma-Shr"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="20a-cx-t7U" firstAttribute="top" secondItem="LcU-wr-AcC" secondAttribute="bottom" constant="39" id="48B-M4-wFi"/>
+                <constraint firstAttribute="trailing" secondItem="BYZ-cg-K1J" secondAttribute="trailing" constant="16" id="5n2-aV-0DF"/>
+                <constraint firstItem="LcU-wr-AcC" firstAttribute="width" secondItem="7sA-fq-CyA" secondAttribute="width" id="7hm-2F-8vV"/>
+                <constraint firstItem="LcU-wr-AcC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F2G-E8-3gI"/>
+                <constraint firstItem="BYZ-cg-K1J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="KGC-HV-Kyd"/>
+                <constraint firstItem="20a-cx-t7U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OYu-fc-fwz"/>
+                <constraint firstItem="GpV-2r-2xK" firstAttribute="top" secondItem="7sA-fq-CyA" secondAttribute="bottom" constant="15" id="R2k-mx-bKc"/>
+                <constraint firstItem="7sA-fq-CyA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rxg-Ur-fcd"/>
+                <constraint firstItem="1Ln-Gd-Y8y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UMG-zn-R4I"/>
+                <constraint firstItem="1Ln-Gd-Y8y" firstAttribute="top" secondItem="20a-cx-t7U" secondAttribute="bottom" constant="19" id="UnU-UP-yOv"/>
+                <constraint firstItem="20a-cx-t7U" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="ick-mC-9Bh"/>
+                <constraint firstItem="7sA-fq-CyA" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.85" id="kjq-m6-K5c"/>
+                <constraint firstItem="GpV-2r-2xK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ruq-Vb-Ezs"/>
+                <constraint firstItem="GpV-2r-2xK" firstAttribute="width" secondItem="7sA-fq-CyA" secondAttribute="width" id="upH-cN-okP"/>
+                <constraint firstItem="LcU-wr-AcC" firstAttribute="top" secondItem="GpV-2r-2xK" secondAttribute="bottom" constant="15" id="vAY-S3-N0I"/>
+                <constraint firstItem="7sA-fq-CyA" firstAttribute="top" secondItem="BYZ-cg-K1J" secondAttribute="bottom" constant="35" id="vBr-UE-NoZ"/>
+            </constraints>
+            <point key="canvasLocation" x="52.5" y="45.5"/>
+        </view>
+    </objects>
+</document>
