@@ -10,7 +10,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CheckoutNameViewController" customModule="Books" customModuleProvider="target">
             <connections>
-                <outlet property="errorLabel" destination="FNT-ld-pyV" id="5HD-ke-Ilc"/>
                 <outlet property="nameField" destination="20a-cx-t7U" id="9Sk-ji-kiE"/>
                 <outlet property="saveButton" destination="1Ln-Gd-Y8y" id="O6d-AZ-HGH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -51,25 +50,17 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You must enter a valid name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FNT-ld-pyV">
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
-                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="20a-cx-t7U" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OYu-fc-fwz"/>
                 <constraint firstItem="7sA-fq-CyA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Rxg-Ur-fcd"/>
+                <constraint firstItem="7sA-fq-CyA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="45" id="Ta2-yu-5jk"/>
                 <constraint firstItem="1Ln-Gd-Y8y" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UMG-zn-R4I"/>
                 <constraint firstItem="1Ln-Gd-Y8y" firstAttribute="top" secondItem="20a-cx-t7U" secondAttribute="bottom" constant="25" id="UnU-UP-yOv"/>
-                <constraint firstItem="7sA-fq-CyA" firstAttribute="top" secondItem="FNT-ld-pyV" secondAttribute="bottom" constant="15" id="XyI-gd-XHD"/>
                 <constraint firstItem="20a-cx-t7U" firstAttribute="top" secondItem="7sA-fq-CyA" secondAttribute="bottom" constant="30" id="YkM-X9-Zf6"/>
                 <constraint firstItem="20a-cx-t7U" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.6" id="ick-mC-9Bh"/>
-                <constraint firstItem="FNT-ld-pyV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="k5T-a9-rvO"/>
                 <constraint firstItem="7sA-fq-CyA" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.85" id="kjq-m6-K5c"/>
-                <constraint firstItem="FNT-ld-pyV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="ntD-0j-GlH"/>
-                <constraint firstItem="FNT-ld-pyV" firstAttribute="width" secondItem="7sA-fq-CyA" secondAttribute="width" id="sj0-Tu-dNl"/>
             </constraints>
             <point key="canvasLocation" x="52.5" y="45.5"/>
         </view>

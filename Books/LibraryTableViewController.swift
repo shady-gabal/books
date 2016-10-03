@@ -12,6 +12,7 @@ import UIKit
 class LibraryTableViewController: UITableViewController {
     static let LibraryCellReuseIdentifier = "LibraryTableViewCell"
     static let CellHeight:CGFloat = 80.0
+    static let sharedInstance = LibraryTableViewController()
     
     let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
@@ -30,10 +31,16 @@ class LibraryTableViewController: UITableViewController {
     
     func fetchBooks(){
         self.showActivityIndicator()
-        BookStore.sharedInstance.fetchBooks(callback: {() -> Void in
-            self.hideActivityIndicator()
-            self.refreshControl?.endRefreshing()
-            self.tableView.reloadData()
+        BookStore.sharedInstance.fetchBooks(callback: {(success:Bool) -> Void in
+            if success{
+                self.hideActivityIndicator()
+                self.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }
+            else{
+                SharedMethods.showAlert(withTitle: "Error", message: "There was an error fetching your books. Please try again", actions: nil, onViewController: self)
+            }
+
         })
     }
     
@@ -50,7 +57,6 @@ class LibraryTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source

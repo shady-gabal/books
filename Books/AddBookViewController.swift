@@ -44,21 +44,33 @@ class AddBookViewController: UIViewController {
         let author = self.authorField?.text
         let tags = self.tagsField?.text
         
-        if (title?.isEmpty)!{
-            
-        }
-        else if (author?.isEmpty)!{
-            
-        }
-        else if (publisher?.isEmpty)!{
-            
-        }
-        else if (tags?.isEmpty)!{
-            
-        }
         
+        if (title?.isEmpty)! || (author?.isEmpty)! || (publisher?.isEmpty)! || (tags?.isEmpty)!{
+            return SharedMethods.showAlert(withTitle: "Error", message: "You must fill out all the fields before submitting", actions: nil, onViewController: self)
+        }
+        let pars:NSDictionary = NSDictionary(objects: [title!, publisher!, author!, tags!], forKeys: ["title" as NSCopying, "publisher" as NSCopying, "author" as NSCopying, "categories" as NSCopying])
         
-        
+        self.submitButton?.showActivityIndicatorView()
+
+        BookStore.sharedInstance.createBook(withData: pars, callback: {(success) -> Void in
+            self.submitButton?.hideActivityIndicatorView()
+            
+            if success{
+                LibraryTableViewController.sharedInstance.tableView.reloadData()
+                
+                let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action) -> Void in
+                    self.dismiss(animated: true, completion: nil)
+                })
+                
+                SharedMethods.showAlert(withTitle: "Successfully created", message: String(format:"'%@' was successfully created.", title!), actions: ok, onViewController: self)
+
+            }
+            else{
+                SharedMethods.showAlert(withTitle: "Error", message: "There was an error creating this book. Please try again.", actions: nil, onViewController: self)
+
+            }
+        })
+
     }
     
     
@@ -73,8 +85,21 @@ class AddBookViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = doneButton
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
     @objc private func doneButtonTapped(){
-        self.dismiss(animated: true, completion: nil)
+        if (self.titleField?.text?.isEmpty)! && (self.authorField?.text?.isEmpty)! && (self.publisherField?.text?.isEmpty)! && (self.tagsField?.text?.isEmpty)!{
+            return self.dismiss(animated: true, completion: nil)
+        }
+        
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: {(action) -> Void in
+            self.dismiss(animated: true, completion: nil)
+        })
+        let no = UIAlertAction(title: "No", style: .cancel, handler: {(action) -> Void in })
+        
+        SharedMethods.showAlert(withTitle: "Confirmation", message: "You have unfilled fields. Are you sure you want to leave?", actions: yes, no, onViewController: self)
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -104,5 +129,6 @@ class AddBookViewController: UIViewController {
             self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         })
     }
+
 
 }

@@ -20,11 +20,7 @@ class BookStore: NSObject {
     
     private var books:[Book] = []
     
-    override init() {
-        
-    }
-    
-    public func fetchBooks(callback: @escaping () -> Void = {() in }){
+    public func fetchBooks(callback: @escaping (Bool) -> Void = {(success:Bool) in }){
         NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: "/books", method: NetworkManager.NetworkMethod.GET, parameters: [:], successCallback: { (responseObject:Any?) -> Void in
             
             self.books = []
@@ -33,17 +29,29 @@ class BookStore: NSObject {
                 for bookDict in booksArray {
                     if let bookData = bookDict as? NSDictionary{
                         let newBook:Book = Book(bookData)
-                        self.books.append(newBook)
+                        self.books.insert(newBook, at: 0)
                     }
                 }
             }
             
-            callback()
-            
+            callback(true)
             
             }, errorCallback: { (statusCode: Int) -> Void in
                 print("Network fetched failed with status code %d", statusCode)
+                callback(false)
             })
+    }
+    
+    public func createBook(withData:NSDictionary, callback:@escaping (Bool) -> Void = {(success:Bool) -> Void in}){
+        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: "/books", method: NetworkManager.NetworkMethod.POST, parameters: withData, successCallback: {(responseObject) -> Void in
+            
+            let newBook:Book = Book(withData)
+            self.books.append(newBook)
+            callback(true)
+            
+            }, errorCallback: {(statusCode) -> Void in
+                callback(false)
+        })
     }
     
     public func checkoutBook(_ book:Book?, callback:@escaping (Bool) -> Void = {(success:Bool) -> Void in}){
@@ -61,7 +69,6 @@ class BookStore: NSObject {
             
             
             }, errorCallback: { (statusCode: Int) -> Void in
-                print("Network fetched failed with status code %d", statusCode)
                 callback(false)
         })
         

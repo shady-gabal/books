@@ -155,7 +155,7 @@
         
         
         if (highlighted){
-            self.unhighlightTimer = [NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(unHighlight) userInfo:nil repeats:NO];
+//            self.unhighlightTimer = [NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(unHighlight) userInfo:nil repeats:NO];
             
             if (!_setFrames){
                 _originalFrame = self.frame;
@@ -198,7 +198,7 @@
 
         }
         else{
-            if (self.unhighlightTimer) [self.unhighlightTimer invalidate];
+//            if (self.unhighlightTimer) [self.unhighlightTimer invalidate];
             [UIView beginAnimations:nil context:nil];
             UIFont * font = self.titleLabel.font;
             self.titleLabel.font = [font fontWithSize:_originalFontSize];

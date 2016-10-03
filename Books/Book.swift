@@ -37,12 +37,12 @@ class Book: NSObject {
         if let lastCheckedOutDateString = withData["lastCheckedOut"] as? String{
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            formatter.timeZone = TimeZone(abbreviation: "EDT")
 
             self.lastCheckedOut = formatter.date(from: lastCheckedOutDateString)
             
             formatter.dateFormat = "MMMM dd, YYYY hh:mm a"
-            
+            formatter.timeZone = TimeZone(secondsFromGMT: NSTimeZone.local.secondsFromGMT())
+
             let dateString:String = self.lastCheckedOut != nil ? formatter.string(from: self.lastCheckedOut!) : "Date not specified"
                         
             self.lastCheckedOutDescription = String.init(format: "%@ @ %@", self.lastCheckedOutBy ?? "Someone", dateString)

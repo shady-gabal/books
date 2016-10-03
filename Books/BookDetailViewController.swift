@@ -72,7 +72,9 @@ class BookDetailViewController: UIViewController {
     
     @IBAction func checkoutButtonTapped(_ sender: AnyObject) {
         if User.sharedInstance.name == nil{
-            let nameController:CheckoutNameViewController = CheckoutNameViewController()
+            let nameController:CheckoutNameViewController = CheckoutNameViewController(withCallback: {() -> Void in
+                self.checkoutBook()
+            })
             let nav = UINavigationController(rootViewController: nameController)
             nav.navigationBar.isTranslucent = false
 
@@ -84,21 +86,39 @@ class BookDetailViewController: UIViewController {
     }
     
     func checkoutBook(){
-        self.checkoutButton?.showActivityIndicatorView()
-        
-        BookStore.sharedInstance.checkoutBook(book, callback: {(succeeded: Bool) -> Void in
-            self.checkoutButton?.hideActivityIndicatorView()
+        if !(self.checkoutButton?.isAnimating)!{
+            self.checkoutButton?.showActivityIndicatorView()
             
-            if succeeded{
-                self.checkoutButton?.setTitle("Checked Out", for: UIControlState.normal)
-                self.checkoutButton?.isEnabled = false
-                self.configure()
-            }
-            else{
+            BookStore.sharedInstance.checkoutBook(book, callback: {(succeeded: Bool) -> Void in
+                self.checkoutButton?.hideActivityIndicatorView()
                 
-            }
-        })
+                if succeeded{
+                    let okAction = UIAlertAction(title: "Ok", style: .default) { (action) in
+                        self.checkoutButton?.setTitle("Checked Out", for: UIControlState.normal)
+                        self.checkoutButton?.isEnabled = false
+                        self.configure()
+                    }
+                    
+                    SharedMethods.showAlert(withTitle: "Success", message: String(format:"Successfully checked out '%@'", (self.book?.title)!), actions: okAction, onViewController: self)
+                        
+
+                }
+                else{
+                    SharedMethods.showAlert(withTitle: "Error", message: "There was an error checking out this book. Please try again", actions: nil, onViewController: self)
+                }
+            })
+        }
     }
     
+    @IBAction func deleteButtonTapped(_ sender: AnyObject) {
+        
+        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: (self.book?.url)!, method: NetworkManager.NetworkMethod.DELETE, parameters: [:], successCallback: { (responseObject:Any?) -> Void in
+            SharedMethods.showAlert(withTitle: "Success", message: "Successfully deleted book", actions: nil, onViewController: self)
+            
+            }, errorCallback: { (statusCode: Int) -> Void in
+                print("Network fetched failed with status code %d", statusCode)
+        })
+
+    }
 
 }

@@ -77,7 +77,7 @@
                 <constraint firstItem="1R5-4y-RZF" firstAttribute="width" secondItem="gI0-sD-IwZ" secondAttribute="width" id="0EY-1F-hg2"/>
                 <constraint firstItem="S94-u8-TPr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0jo-fH-KLL"/>
                 <constraint firstItem="S94-u8-TPr" firstAttribute="top" secondItem="3Aa-DY-dxM" secondAttribute="bottom" constant="27" id="3fu-op-ueX"/>
-                <constraint firstItem="1R5-4y-RZF" firstAttribute="top" secondItem="gpj-um-ZxM" secondAttribute="bottom" constant="20" id="5Ig-rn-Hwp"/>
+                <constraint firstItem="1R5-4y-RZF" firstAttribute="top" secondItem="gpj-um-ZxM" secondAttribute="bottom" constant="18" id="5Ig-rn-Hwp"/>
                 <constraint firstItem="gpj-um-ZxM" firstAttribute="width" secondItem="gI0-sD-IwZ" secondAttribute="width" id="8Xk-8B-xE3"/>
                 <constraint firstItem="3Aa-DY-dxM" firstAttribute="height" secondItem="gI0-sD-IwZ" secondAttribute="height" id="9Ne-Z4-GR5"/>
                 <constraint firstItem="gI0-sD-IwZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fkq-rw-LIa"/>
@@ -89,9 +89,9 @@
                 <constraint firstItem="1R5-4y-RZF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="faO-KO-b8G"/>
                 <constraint firstItem="3Aa-DY-dxM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fem-7T-BWr"/>
                 <constraint firstItem="gI0-sD-IwZ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.75" id="gnP-B0-9Yl"/>
-                <constraint firstItem="3Aa-DY-dxM" firstAttribute="top" secondItem="1R5-4y-RZF" secondAttribute="bottom" constant="25" id="lIN-Es-b3o"/>
-                <constraint firstItem="gI0-sD-IwZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="pjY-4q-JnT"/>
-                <constraint firstItem="gpj-um-ZxM" firstAttribute="top" secondItem="gI0-sD-IwZ" secondAttribute="bottom" constant="22" id="xC0-aq-qKZ"/>
+                <constraint firstItem="3Aa-DY-dxM" firstAttribute="top" secondItem="1R5-4y-RZF" secondAttribute="bottom" constant="18" id="lIN-Es-b3o"/>
+                <constraint firstItem="gI0-sD-IwZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="pjY-4q-JnT"/>
+                <constraint firstItem="gpj-um-ZxM" firstAttribute="top" secondItem="gI0-sD-IwZ" secondAttribute="bottom" constant="18" id="xC0-aq-qKZ"/>
             </constraints>
             <point key="canvasLocation" x="48.5" y="53.5"/>
         </view>

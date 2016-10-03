@@ -9,14 +9,12 @@
 import UIKit
 
 class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
-
-    static let AnimationDuration = 1.0
     
     var book:Book?
+    var callback:(() -> Void)?
+    
     @IBOutlet var saveButton:SREButton?
     @IBOutlet var nameField:UITextField?
-    @IBOutlet var xButton:UIButton?
-    @IBOutlet var errorLabel:UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +26,9 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
 //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
-    init(){
+    init(withCallback: @escaping () -> Void){
         super.init(nibName: "CheckoutNameViewController", bundle: nil)
+        callback = withCallback
     }
     
     @objc private func endEditing(){
@@ -52,17 +51,21 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
         if name != nil && (name?.characters.count)! > 0{
             if validateName(name){
                 saveName(name)
-                self.dismiss(animated: true, completion: nil)
+                
+                self.dismiss(animated: true, completion: {(finished) -> Void in
+                    if self.callback != nil{
+                        self.callback!()
+                    }
+                })
+                
             }
             else{
-                self.errorLabel?.text = "Your name can only contain letters"
-                showErrorMessage()
+                SharedMethods.showAlert(withTitle: "Error", message: "Your name can only contain letters and spaces", actions: nil, onViewController: self)
             }
 
         }
         else{
-            self.errorLabel?.text = "You must enter a valid name"
-            showErrorMessage()
+             SharedMethods.showAlert(withTitle: "Error", message: "You must enter a valid name before submitting", actions: nil, onViewController: self)
         }
     }
     
@@ -76,25 +79,6 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
         return false
     }
     
-    private func showErrorMessage(){
-        UIView.animate(withDuration: CheckoutNameViewController.AnimationDuration, delay: 0,  options: UIViewAnimationOptions.curveEaseOut, animations: {() -> Void in
-            
-                self.errorLabel?.alpha = 1
-            
-            }, completion: {(finished:Bool) -> Void in
-                
-                Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.hideErrorMessage), userInfo: nil, repeats: false)
-                
-        })
-    }
-    
-    @objc private func hideErrorMessage(){
-        UIView.animate(withDuration: CheckoutNameViewController.AnimationDuration, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {() -> Void in
-            self.errorLabel?.alpha = 0
-            }, completion: {(finished:Bool) -> Void in
-
-        })
-    }
     
     private func saveName(_ name:String!){
         UserDefaults.standard.set(name!, forKey: Constants.DefaultsKeyName)
@@ -111,6 +95,8 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
         self.endEditing()
         return true
     }
+    
+
     
 //    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 //        return true

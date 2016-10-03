@@ -6,31 +6,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Books/BookStore.swift"
-            timestampString = "497148225.958467"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "fetchBooks(callback:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Books/CheckoutNameViewController.swift"
-            timestampString = "497154119.999436"
+            timestampString = "497163942.695057"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
             landmarkName = "CheckoutNameViewController"
             landmarkType = "3">
             <Locations>
@@ -63,54 +47,6 @@
                   startingLineNumber = "61"
                   endingLineNumber = "61"
                   offsetFromSymbolStart = "920">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Books/AddBookViewController.swift"
-            timestampString = "497155346.614915"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "keyboardDidHide(_:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Books.AddBookViewController.(keyboardDidHide in _3D14A2FDE3A923114EE26093722194DE) (__ObjC.NSNotification) -&gt; ()"
-                  moduleName = "Books"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/AddBookViewController.swift"
-                  timestampString = "497155348.319665"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "20">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Books.AddBookViewController.((keyboardDidHide in _3D14A2FDE3A923114EE26093722194DE) (__ObjC.NSNotification) -&gt; ()).(closure #1)"
-                  moduleName = "Books"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shadygabal/Code/iPhone%20Coding/Books/Books/AddBookViewController.swift"
-                  timestampString = "497155348.32252"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "104"
-                  endingLineNumber = "104"
-                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
