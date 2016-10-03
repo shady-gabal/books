@@ -78,8 +78,7 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
     
     
     private func saveName(_ name:String!){
-        UserDefaults.standard.set(name!, forKey: Constants.DefaultsKeyName)
-        User.sharedInstance.name = name
+        User.sharedInstance.saveName(name)
     }
     
     

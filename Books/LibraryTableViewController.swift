@@ -102,6 +102,27 @@ class LibraryTableViewController: UITableViewController {
         self.navigationItem.title = "Books"
         let addButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: #selector(LibraryTableViewController.addButtonTapped))
         self.navigationItem.rightBarButtonItem = addButton
+        let deleteAllButton = UIBarButtonItem(title: "Delete All", style: .plain, target: self, action: #selector(self.deleteAllBooks))
+        self.navigationItem.leftBarButtonItem = deleteAllButton
+    }
+    
+    @objc private func deleteAllBooks(){
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: {(action) -> Void in
+            BookStore.sharedInstance.deleteAllBooks(callback: {(success) -> Void in
+                if success{
+                    self.tableView.reloadData()
+                    SharedMethods.showAlert(withTitle: "Success", message: "Successfully deleted all books", actions: nil, onViewController: self)
+                }
+                else{
+                    SharedMethods.showAlert(withTitle: "Error", message: "There was an error deleting the books. Please try again.", actions: nil, onViewController: self)
+                }
+            })
+        })
+        let no = UIAlertAction(title: "No", style: .cancel, handler: {(action) -> Void in })
+        
+        
+        SharedMethods.showAlert(withTitle: "Confirmation", message: "Are you sure you want to delete all the books?", actions: yes, no, onViewController: self)
+
     }
     
     @objc private func addButtonTapped(){

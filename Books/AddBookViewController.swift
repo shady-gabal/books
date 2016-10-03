@@ -15,16 +15,34 @@ class AddBookViewController: UIViewController {
     @IBOutlet var publisherField:UITextField?
     @IBOutlet var tagsField:UITextField?
     @IBOutlet var submitButton:SREButton?
+    
+    var editingBook:Bool = false
+    var book:Book?
+    var completionCallback:(() -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.submitButton?.roundCorners()
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing))
         self.view.addGestureRecognizer(tap)
+        
+        if book != nil{
+            self.titleField?.text = book?.title ?? ""
+            self.authorField?.text = book?.author ?? ""
+            self.publisherField?.text = book?.publisher ?? ""
+            self.tagsField?.text = book?.categories ?? ""
+        }
+        
     }
     
     init(){
         super.init(nibName: "AddBookViewController", bundle: nil)
+    }
+    
+    init(toEditBook:Book?){
+        super.init(nibName: "AddBookViewController", bundle: nil)
+        editingBook = true
+        book = toEditBook
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,25 +66,38 @@ class AddBookViewController: UIViewController {
         let pars:NSDictionary = NSDictionary(objects: [title!, publisher!, author!, tags!], forKeys: ["title" as NSCopying, "publisher" as NSCopying, "author" as NSCopying, "categories" as NSCopying])
         
         self.submitButton?.showActivityIndicatorView()
-
-        BookStore.sharedInstance.createBook(withData: pars, callback: {(success) -> Void in
+        
+        let callback = {(success:Bool) -> Void in
             self.submitButton?.hideActivityIndicatorView()
-            
+            let verb = self.editingBook ? "updat" : "creat"
+
             if success{
                 LibraryTableViewController.sharedInstance.tableView.reloadData()
+                
+                if self.completionCallback != nil{
+                    self.completionCallback!()
+                }
                 
                 let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action) -> Void in
                     self.dismiss(animated: true, completion: nil)
                 })
                 
-                SharedMethods.showAlert(withTitle: "Successfully created", message: String(format:"'%@' was successfully created.", title!), actions: ok, onViewController: self)
-
+                SharedMethods.showAlert(withTitle: String(format: "Successfully %@ed", verb), message: String(format:"'%@' was successfully %@ed.", title!, verb), actions: ok, onViewController: self)
+                
             }
             else{
-                SharedMethods.showAlert(withTitle: "Error", message: "There was an error creating this book. Please try again.", actions: nil, onViewController: self)
-
+                SharedMethods.showAlert(withTitle: "Error", message: String(format:"There was an error %@ing this book. Please try again.", verb), actions: nil, onViewController: self)
+                
             }
-        })
+        }
+
+        if self.editingBook{
+            BookStore.sharedInstance.updateBook(book, withData: pars, callback: callback)
+
+        }
+        else{
+            BookStore.sharedInstance.createBook(withData: pars, callback: callback)
+        }
 
     }
     

@@ -109,5 +109,42 @@ class BookDetailViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func deleteButtonTapped(_ sender: AnyObject) {
+        
+        let yes = UIAlertAction(title: "Yes", style: .default, handler: {(action) -> Void in
+            BookStore.sharedInstance.deleteBook(self.book, callback: {(success) -> Void in
+                if success{
+                    LibraryTableViewController.sharedInstance.tableView.reloadData()
+
+                    let ok = UIAlertAction(title: "Ok", style: .default, handler: {(action) -> Void in
+                        _ = self.navigationController?.popToRootViewController(animated: true)
+                    })
+                    SharedMethods.showAlert(withTitle: "Success", message: "Successfully deleted book", actions: ok, onViewController: self)
+                }
+                else{
+                   SharedMethods.showAlert(withTitle: "Error", message: "There was an error deleting this book. Please try again.", actions: nil, onViewController: self)
+                }
+            })
+        })
+        let no = UIAlertAction(title: "No", style: .cancel, handler: {(action) -> Void in })
+
+        
+        SharedMethods.showAlert(withTitle: "Confirmation", message: String(format:"Are you sure you want to delete %@?", (self.book?.title) ?? "this book"), actions: yes, no, onViewController: self)
+        
+
+    }
+    
+    @IBAction func editButtonTapped(_ sender: AnyObject) {
+        let edit = AddBookViewController(toEditBook: self.book)
+        edit.completionCallback = {() -> Void in
+            self.configure()
+        }
+        let nav = UINavigationController(rootViewController: edit)
+        nav.navigationBar.isTranslucent = false
+        
+        self.present(nav, animated: true, completion: nil)
+    }
+
 
 }

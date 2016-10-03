@@ -17,5 +17,10 @@ class User: NSObject {
         super.init()
         self.name = UserDefaults.standard.object(forKey: Constants.DefaultsKeyName) as? String
     }
+    
+    public func saveName(_ name:String!){
+        UserDefaults.standard.set(name!, forKey: Constants.DefaultsKeyName)
+        self.name = name
+    }
 
 }

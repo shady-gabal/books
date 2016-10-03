@@ -70,6 +70,28 @@
                                 <action selector="checkoutButtonTapped:" destination="-1" eventType="touchUpInside" id="mKE-qK-0iK"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="goD-gX-CW3">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="cZP-pS-geW"/>
+                                <constraint firstAttribute="width" constant="69" id="n76-m3-vcv"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                            <state key="normal" title="Edit"/>
+                            <connections>
+                                <action selector="editButtonTapped:" destination="-1" eventType="touchUpInside" id="GBo-CT-MNS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FCh-cs-CEf">
+                            <constraints>
+                                <constraint firstAttribute="height" constant="32" id="pDF-o8-aT2"/>
+                                <constraint firstAttribute="width" constant="69" id="zLX-GR-CvP"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                            <state key="normal" title="Delete"/>
+                            <connections>
+                                <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="VGx-r9-zsD"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="edd-th-MGZ" firstAttribute="top" secondItem="Mwu-KE-oVs" secondAttribute="bottom" constant="32.5" id="0Nx-vy-S1E"/>
@@ -77,6 +99,7 @@
                         <constraint firstItem="gUg-ip-r14" firstAttribute="width" secondItem="NmD-BA-PGw" secondAttribute="width" multiplier="0.5" id="2px-uj-nSM"/>
                         <constraint firstItem="edd-th-MGZ" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="4Um-E3-Rgr"/>
                         <constraint firstItem="Mwu-KE-oVs" firstAttribute="top" secondItem="cwj-sb-ZzQ" secondAttribute="bottom" constant="6" id="5Ul-tC-Db6"/>
+                        <constraint firstItem="goD-gX-CW3" firstAttribute="top" secondItem="gUg-ip-r14" secondAttribute="bottom" constant="14.5" id="6zV-qN-9Jz"/>
                         <constraint firstItem="gUg-ip-r14" firstAttribute="centerX" secondItem="NmD-BA-PGw" secondAttribute="centerX" id="8ZF-x4-mhV"/>
                         <constraint firstItem="ZML-Oe-RWf" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="CRA-4B-5u3"/>
                         <constraint firstItem="cwj-sb-ZzQ" firstAttribute="top" secondItem="NmD-BA-PGw" secondAttribute="top" constant="25" id="Cib-5T-sPH"/>
@@ -84,14 +107,17 @@
                         <constraint firstItem="kqX-2a-g0O" firstAttribute="top" secondItem="ZML-Oe-RWf" secondAttribute="bottom" constant="9" id="RME-RF-0kw"/>
                         <constraint firstItem="AaM-a9-PBm" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="Vic-O5-IXx"/>
                         <constraint firstItem="ZML-Oe-RWf" firstAttribute="width" secondItem="cwj-sb-ZzQ" secondAttribute="width" id="XI6-qf-Kf4"/>
+                        <constraint firstItem="FCh-cs-CEf" firstAttribute="top" secondItem="gUg-ip-r14" secondAttribute="bottom" constant="13.5" id="Yed-4D-Jxz"/>
                         <constraint firstItem="ZML-Oe-RWf" firstAttribute="top" secondItem="AaM-a9-PBm" secondAttribute="bottom" constant="9" id="bcB-uv-LWW"/>
                         <constraint firstItem="kqX-2a-g0O" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="cGw-AN-ueD"/>
                         <constraint firstAttribute="trailing" secondItem="cwj-sb-ZzQ" secondAttribute="trailing" constant="23" id="fBg-d1-nIh"/>
+                        <constraint firstItem="goD-gX-CW3" firstAttribute="leading" secondItem="gUg-ip-r14" secondAttribute="leading" id="gak-at-r30"/>
                         <constraint firstItem="cwj-sb-ZzQ" firstAttribute="width" secondItem="NmD-BA-PGw" secondAttribute="width" multiplier="0.875" id="hlj-bY-T8Y"/>
                         <constraint firstItem="AaM-a9-PBm" firstAttribute="width" secondItem="cwj-sb-ZzQ" secondAttribute="width" id="jSW-3J-LFf"/>
                         <constraint firstItem="cwj-sb-ZzQ" firstAttribute="centerX" secondItem="NmD-BA-PGw" secondAttribute="centerX" id="nIt-TH-ZG9"/>
                         <constraint firstItem="kqX-2a-g0O" firstAttribute="width" secondItem="cwj-sb-ZzQ" secondAttribute="width" id="sXV-Bp-x29"/>
                         <constraint firstItem="Mwu-KE-oVs" firstAttribute="width" secondItem="cwj-sb-ZzQ" secondAttribute="width" id="xDC-ZV-Vax"/>
+                        <constraint firstItem="FCh-cs-CEf" firstAttribute="trailing" secondItem="gUg-ip-r14" secondAttribute="trailing" constant="-4" id="xhP-n0-CL6"/>
                         <constraint firstItem="Mwu-KE-oVs" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="yRg-q7-Cc5"/>
                         <constraint firstAttribute="bottom" secondItem="cwj-sb-ZzQ" secondAttribute="bottom" constant="614" id="zT6-fE-5dt"/>
                         <constraint firstItem="AaM-a9-PBm" firstAttribute="top" secondItem="edd-th-MGZ" secondAttribute="bottom" constant="9" id="ziy-hA-450"/>
