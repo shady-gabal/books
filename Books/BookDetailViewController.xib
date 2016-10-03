@@ -70,17 +70,6 @@
                                 <action selector="checkoutButtonTapped:" destination="-1" eventType="touchUpInside" id="mKE-qK-0iK"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yey-hu-hU7">
-                            <constraints>
-                                <constraint firstAttribute="height" constant="35" id="OdK-Rh-ydl"/>
-                                <constraint firstAttribute="width" constant="97" id="fyS-yk-gaN"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                            <state key="normal" title="Delete"/>
-                            <connections>
-                                <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="Y9x-Y9-3DJ"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <constraints>
                         <constraint firstItem="edd-th-MGZ" firstAttribute="top" secondItem="Mwu-KE-oVs" secondAttribute="bottom" constant="32.5" id="0Nx-vy-S1E"/>
@@ -93,13 +82,11 @@
                         <constraint firstItem="cwj-sb-ZzQ" firstAttribute="top" secondItem="NmD-BA-PGw" secondAttribute="top" constant="25" id="Cib-5T-sPH"/>
                         <constraint firstItem="gUg-ip-r14" firstAttribute="top" secondItem="kqX-2a-g0O" secondAttribute="bottom" constant="40" id="M4R-zJ-X4b"/>
                         <constraint firstItem="kqX-2a-g0O" firstAttribute="top" secondItem="ZML-Oe-RWf" secondAttribute="bottom" constant="9" id="RME-RF-0kw"/>
-                        <constraint firstItem="yey-hu-hU7" firstAttribute="top" secondItem="gUg-ip-r14" secondAttribute="bottom" constant="21.5" id="TBF-CW-lgs"/>
                         <constraint firstItem="AaM-a9-PBm" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="Vic-O5-IXx"/>
                         <constraint firstItem="ZML-Oe-RWf" firstAttribute="width" secondItem="cwj-sb-ZzQ" secondAttribute="width" id="XI6-qf-Kf4"/>
                         <constraint firstItem="ZML-Oe-RWf" firstAttribute="top" secondItem="AaM-a9-PBm" secondAttribute="bottom" constant="9" id="bcB-uv-LWW"/>
                         <constraint firstItem="kqX-2a-g0O" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="cGw-AN-ueD"/>
                         <constraint firstAttribute="trailing" secondItem="cwj-sb-ZzQ" secondAttribute="trailing" constant="23" id="fBg-d1-nIh"/>
-                        <constraint firstItem="yey-hu-hU7" firstAttribute="centerX" secondItem="NmD-BA-PGw" secondAttribute="centerX" id="g5n-fh-nDp"/>
                         <constraint firstItem="cwj-sb-ZzQ" firstAttribute="width" secondItem="NmD-BA-PGw" secondAttribute="width" multiplier="0.875" id="hlj-bY-T8Y"/>
                         <constraint firstItem="AaM-a9-PBm" firstAttribute="width" secondItem="cwj-sb-ZzQ" secondAttribute="width" id="jSW-3J-LFf"/>
                         <constraint firstItem="cwj-sb-ZzQ" firstAttribute="centerX" secondItem="NmD-BA-PGw" secondAttribute="centerX" id="nIt-TH-ZG9"/>

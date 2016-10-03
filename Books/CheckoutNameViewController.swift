@@ -21,9 +21,6 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
         self.saveButton?.roundCorners()
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing))
         self.view.addGestureRecognizer(tap)
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
     init(withCallback: @escaping () -> Void){
@@ -83,7 +80,6 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
     private func saveName(_ name:String!){
         UserDefaults.standard.set(name!, forKey: Constants.DefaultsKeyName)
         User.sharedInstance.name = name
-//        NotificationCenter.default.post(name: Constants.NotificationNameSaved, object: nil)
     }
     
     
@@ -95,44 +91,6 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
         self.endEditing()
         return true
     }
-    
-
-    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        return true
-//    }
-//
-//    - (void)keyboardDidShow: (NSNotification *) notif{
-//    NSDictionary *userInfo = [notif valueForKey:@"userInfo"];
-//    CGRect kbFrame = [[userInfo objectForKey:@"UIKeyboardFrameBeginUserInfoKey"] CGRectValue];
-//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kbFrame.size.height, 0);
-//    
-//    }
-//    
-//    - (void)keyboardDidHide: (NSNotification *) notif{
-//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-//    }
-
-//    @objc private func keyboardDidShow(_ notif:NSNotification){
-////        let userInfo:NSDictionary = notif.value(forKey: "userInfo") as! NSDictionary
-////        let keyboardFrame:CGRect = userInfo.object(forKey: "UIKeyboardBeginUserInfoKey").
-////        
-//        if let keyboardSize = (notif.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)
-//            
-//            UIView.animate(withDuration: 0.3, animations: {() -> Void in
-//                self.view.frame = self.view.frame.offsetBy(dx: 0, dy: keyboardSize.height * -0.25)
-//            })
-//        }
-//        
-//
-//    }
-//    
-//    @objc private func keyboardDidHide(_ notif:NSNotification){
-//        UIView.animate(withDuration: 0.3, animations: {() -> Void in
-//            self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
-//        })
-//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

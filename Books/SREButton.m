@@ -22,8 +22,8 @@
 }
 
 
-#define k_BUTTON_ANIMATED_SIZE_MULTIPLIER 1.0275
-#define k_Button_Corner_Radius 5.
+static const CGFloat k_BUTTON_ANIMATED_SIZE_MULTIPLIER = 1.0275;
+static const int k_Button_Corner_Radius  = 5;
 
 #pragma mark - Create
 

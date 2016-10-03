@@ -109,16 +109,5 @@ class BookDetailViewController: UIViewController {
             })
         }
     }
-    
-    @IBAction func deleteButtonTapped(_ sender: AnyObject) {
-        
-        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: (self.book?.url)!, method: NetworkManager.NetworkMethod.DELETE, parameters: [:], successCallback: { (responseObject:Any?) -> Void in
-            SharedMethods.showAlert(withTitle: "Success", message: "Successfully deleted book", actions: nil, onViewController: self)
-            
-            }, errorCallback: { (statusCode: Int) -> Void in
-                print("Network fetched failed with status code %d", statusCode)
-        })
-
-    }
 
 }

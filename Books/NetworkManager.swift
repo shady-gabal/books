@@ -53,7 +53,6 @@ class NetworkManager: NSObject {
 
     }
     
-//
     
     public func networkRequestToLibrary(urlSuffix: String, method: NetworkMethod, parameters: NSDictionary, successCallback : @escaping (Any?) -> Void, errorCallback: @escaping (Int) -> Void) {
         
