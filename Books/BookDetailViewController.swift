@@ -22,12 +22,16 @@ class BookDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.checkoutButton?.layer.cornerRadius = 5
-
+        self.configure()
+    }
+    
+    func configure(){
         self.tagsLabel?.text = self.book?.categories != nil ? "Tags: " + (self.book?.categories)! : "No tags"
         self.authorLabel?.text = self.book?.author
         self.titleLabel?.text = self.book?.title
         self.publisherLabel?.text = self.book?.publisher != nil ?  "Publisher: " + (self.book?.publisher)! : "No publisher"
         self.lastCheckedOutByLabel?.text = self.book?.lastCheckedOutDescription
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +65,9 @@ class BookDetailViewController: UIViewController {
     }
     
     @objc private func shareButtonTapped(){
-        
+        let desc:String = (self.book?.bookDescription())!
+        let activityViewController = UIActivityViewController(activityItems: [desc], applicationActivities: nil)
+        present(activityViewController, animated: true, completion: {})
     }
     
     @IBAction func checkoutButtonTapped(_ sender: AnyObject) {
@@ -82,11 +88,14 @@ class BookDetailViewController: UIViewController {
             
             if succeeded{
                 self.checkoutButton?.setTitle("Checked Out", for: UIControlState.normal)
+                self.checkoutButton?.isEnabled = false
+                self.configure()
             }
             else{
                 
             }
         })
     }
+    
 
 }

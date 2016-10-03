@@ -96,7 +96,7 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
     }
     
     private func saveName(_ name:String!){
-        UserDefaults.standard.set(name, forKey: Constants.DefaultsKeyName)
+        UserDefaults.standard.set(name!, forKey: Constants.DefaultsKeyName)
         User.sharedInstance.name = name
 //        NotificationCenter.default.post(name: Constants.NotificationNameSaved, object: nil)
     }

@@ -49,7 +49,7 @@ class BookStore: NSObject {
             return callback(false)
         }
         
-        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: (book?.url)!, method: NetworkManager.NetworkMethod.PUT, parameters: ["lastCheckedOutBy": User.sharedInstance.name], successCallback: { (responseObject:Any?) -> Void in
+        NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: (book?.url)!, method: NetworkManager.NetworkMethod.PUT, parameters: ["lastCheckedOutBy": User.sharedInstance.name!], successCallback: { (responseObject:Any?) -> Void in
             
             if let data = responseObject as? NSDictionary{
                 book?.update(withData: data)

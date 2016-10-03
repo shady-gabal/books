@@ -32,18 +32,18 @@
 
 /** @name Header Methods */
 
--(void) addBorders;
--(void) addBordersWithColor:(UIColor *) color;
+//-(void) addBorders;
+//-(void) addBordersWithColor:(UIColor *) color;
 +(instancetype) buttonWithText:(NSString *) text fontSize:(double) fontSize font:(NSString *) font textColor:(UIColor *) textColor rectangular:(BOOL) rectangular;
 -(void) showActivityIndicatorView;
 -(void) hideActivityIndicatorView;
 
 -(void) modifyWithText:(NSString *) text fontSize:(double) fontSize font:(NSString *) font textColor:(UIColor *) textColor rectangular:(BOOL) rectangular;
--(void) addInsets:(UIEdgeInsets) insets;
--(void) addInsets;
+//-(void) addInsets:(UIEdgeInsets) insets;
+//-(void) addInsets;
 -(void) makeRectangularButton;
--(void) makeCircleButton;
--(void) makeLayerSameColor;
+//-(void) makeCircleButton;
+//-(void) makeLayerSameColor;
 -(void) roundCorners;
 
 @end

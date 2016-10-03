@@ -12,19 +12,8 @@ import UIKit
 class LibraryTableViewController: UITableViewController {
     static let LibraryCellReuseIdentifier = "LibraryTableViewCell"
     static let CellHeight:CGFloat = 80.0
-
-//    var prototypeCell:LibraryTableViewCell!{
-//        get {
-//
-//        }
-//    }
     
-//    private func prototypeCell() -> LibraryTableViewCell!{
-//        if _prototypeCell == nil{
-//
-//        }
-//        return _prototypeCell
-//    }
+    let activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,10 +22,30 @@ class LibraryTableViewController: UITableViewController {
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = LibraryTableViewController.CellHeight
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl?.addTarget(self, action: #selector(self.fetchBooks), for: UIControlEvents.valueChanged)
         
+        fetchBooks()
+    }
+    
+    func fetchBooks(){
+        self.showActivityIndicator()
         BookStore.sharedInstance.fetchBooks(callback: {() -> Void in
+            self.hideActivityIndicator()
+            self.refreshControl?.endRefreshing()
             self.tableView.reloadData()
         })
+    }
+    
+    private func showActivityIndicator(){
+        activityIndicator.center = CGPoint(x: self.view.frame.size.width/2.0, y: self.view.frame.size.height/2.0 - (self.navigationController?.navigationBar.frame.size.height)!)
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicator(){
+        activityIndicator.stopAnimating()
+        activityIndicator.removeFromSuperview()
     }
     
     private func addedName(){

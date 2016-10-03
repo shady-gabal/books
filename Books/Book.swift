@@ -36,16 +36,29 @@ class Book: NSObject {
         
         if let lastCheckedOutDateString = withData["lastCheckedOut"] as? String{
             let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             
             self.lastCheckedOut = formatter.date(from: lastCheckedOutDateString)
             
-            formatter.dateFormat = "MMMM dd YYYY HH:mm a"
+            formatter.dateFormat = "MMMM dd, YYYY hh:mm a"
             let dateString:String = self.lastCheckedOut != nil ? formatter.string(from: self.lastCheckedOut!) : "Date not specified"
+                        
             self.lastCheckedOutDescription = String.init(format: "%@ @ %@", self.lastCheckedOutBy ?? "Someone", dateString)
         }
         else{
             self.lastCheckedOutDescription = "Never checked out"
         }
+    }
+    
+    func bookDescription() -> String!{
+        var ans:String = self.title ?? ""
+        if self.author != nil{
+            ans += String(format: ", by %@", self.author!)
+        }
+        if self.publisher != nil{
+            ans += String(format: ". Published by %@", self.publisher!)
+        }
+        
+        return ans
     }
 }
