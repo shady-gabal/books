@@ -10,6 +10,8 @@ import UIKit
 
 class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
 
+    static let AnimationDuration = 1.0
+    
     var book:Book?
     @IBOutlet var saveButton:SREButton?
     @IBOutlet var nameField:UITextField?
@@ -18,7 +20,7 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.saveButton?.layer.cornerRadius = 5
+        self.saveButton?.roundCorners()
         let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(endEditing))
         self.view.addGestureRecognizer(tap)
         
@@ -26,9 +28,8 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
 //        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
-    init(withBook:Book?){
+    init(){
         super.init(nibName: "CheckoutNameViewController", bundle: nil)
-        book = withBook
     }
     
     @objc private func endEditing(){
@@ -76,7 +77,7 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
     }
     
     private func showErrorMessage(){
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 0, initialSpringVelocity:0, options: UIViewAnimationOptions.curveEaseOut, animations: {() -> Void in
+        UIView.animate(withDuration: CheckoutNameViewController.AnimationDuration, delay: 0,  options: UIViewAnimationOptions.curveEaseOut, animations: {() -> Void in
             
                 self.errorLabel?.alpha = 1
             
@@ -88,7 +89,7 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
     }
     
     @objc private func hideErrorMessage(){
-        UIView.animate(withDuration: 1.0, delay: 0, usingSpringWithDamping: 15, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {() -> Void in
+        UIView.animate(withDuration: CheckoutNameViewController.AnimationDuration, delay: 0, options: UIViewAnimationOptions.curveEaseOut, animations: {() -> Void in
             self.errorLabel?.alpha = 0
             }, completion: {(finished:Bool) -> Void in
 
@@ -101,9 +102,6 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
 //        NotificationCenter.default.post(name: Constants.NotificationNameSaved, object: nil)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         return true
@@ -150,7 +148,14 @@ class CheckoutNameViewController: UIViewController, UITextFieldDelegate{
 //        })
 //    }
     
-    @IBAction private func xButtonTapped(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Name"
+        let doneButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneButtonTapped))
+        self.navigationItem.rightBarButtonItem = doneButton
+    }
+    
+    @objc private func doneButtonTapped(){
         self.dismiss(animated: true, completion: nil)
     }
 }

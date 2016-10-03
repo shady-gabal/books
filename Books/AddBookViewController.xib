@@ -3,11 +3,18 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddBookViewController" customModule="Books" customModuleProvider="target">
             <connections>
+                <outlet property="authorField" destination="gpj-um-ZxM" id="9Aj-po-96E"/>
+                <outlet property="publisherField" destination="1R5-4y-RZF" id="9h3-jw-2yN"/>
+                <outlet property="submitButton" destination="S94-u8-TPr" id="s89-qh-k9Q"/>
+                <outlet property="tagsField" destination="3Aa-DY-dxM" id="97s-WR-5IF"/>
+                <outlet property="titleField" destination="gI0-sD-IwZ" id="1dj-aV-ByD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,36 +23,76 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gI0-sD-IwZ">
-                    <frame key="frameInset" minX="86" minY="81" width="203" height="41"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Book title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gI0-sD-IwZ">
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="gI0-sD-IwZ" secondAttribute="height" multiplier="281:54" id="304-be-a8n"/>
+                    </constraints>
+                    <color key="textColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="wbT-0b-3fb"/>
+                    </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gpj-um-ZxM">
-                    <frame key="frameInset" minX="86" minY="140" width="203" height="41"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Author" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gpj-um-ZxM">
+                    <color key="textColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="z6R-it-RsA"/>
+                    </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1R5-4y-RZF">
-                    <frame key="frameInset" minX="86" minY="202" width="203" height="41"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Publisher" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1R5-4y-RZF">
+                    <color key="textColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="xrx-Cp-qQz"/>
+                    </connections>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Aa-DY-dxM">
-                    <frame key="frameInset" minX="86" minY="268" width="203" height="41"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Categories" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Aa-DY-dxM">
+                    <color key="textColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="19"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="A1y-fL-Jq2"/>
+                    </connections>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S94-u8-TPr" customClass="SREButton">
+                    <color key="backgroundColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="S94-u8-TPr" secondAttribute="height" multiplier="131:27" id="3dd-KO-ynP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                    <state key="normal" title="Submit">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="submitButtonTapped:" destination="-1" eventType="touchUpInside" id="6qr-cr-B2q"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="1R5-4y-RZF" firstAttribute="width" secondItem="gI0-sD-IwZ" secondAttribute="width" id="0EY-1F-hg2"/>
+                <constraint firstItem="S94-u8-TPr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0jo-fH-KLL"/>
+                <constraint firstItem="S94-u8-TPr" firstAttribute="top" secondItem="3Aa-DY-dxM" secondAttribute="bottom" constant="27" id="3fu-op-ueX"/>
+                <constraint firstItem="1R5-4y-RZF" firstAttribute="top" secondItem="gpj-um-ZxM" secondAttribute="bottom" constant="20" id="5Ig-rn-Hwp"/>
+                <constraint firstItem="gpj-um-ZxM" firstAttribute="width" secondItem="gI0-sD-IwZ" secondAttribute="width" id="8Xk-8B-xE3"/>
+                <constraint firstItem="3Aa-DY-dxM" firstAttribute="height" secondItem="gI0-sD-IwZ" secondAttribute="height" id="9Ne-Z4-GR5"/>
+                <constraint firstItem="gI0-sD-IwZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Fkq-rw-LIa"/>
+                <constraint firstItem="gpj-um-ZxM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="IdQ-2a-jDH"/>
+                <constraint firstItem="1R5-4y-RZF" firstAttribute="height" secondItem="gI0-sD-IwZ" secondAttribute="height" id="Pcg-Yd-Uvu"/>
+                <constraint firstItem="3Aa-DY-dxM" firstAttribute="width" secondItem="gI0-sD-IwZ" secondAttribute="width" id="XKQ-0X-WNI"/>
+                <constraint firstItem="gpj-um-ZxM" firstAttribute="height" secondItem="gI0-sD-IwZ" secondAttribute="height" id="ZmW-5c-9fj"/>
+                <constraint firstItem="S94-u8-TPr" firstAttribute="width" secondItem="gI0-sD-IwZ" secondAttribute="width" id="aHl-MD-tqo"/>
+                <constraint firstItem="1R5-4y-RZF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="faO-KO-b8G"/>
+                <constraint firstItem="3Aa-DY-dxM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fem-7T-BWr"/>
+                <constraint firstItem="gI0-sD-IwZ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.75" id="gnP-B0-9Yl"/>
+                <constraint firstItem="3Aa-DY-dxM" firstAttribute="top" secondItem="1R5-4y-RZF" secondAttribute="bottom" constant="25" id="lIN-Es-b3o"/>
+                <constraint firstItem="gI0-sD-IwZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="pjY-4q-JnT"/>
+                <constraint firstItem="gpj-um-ZxM" firstAttribute="top" secondItem="gI0-sD-IwZ" secondAttribute="bottom" constant="22" id="xC0-aq-qKZ"/>
+            </constraints>
             <point key="canvasLocation" x="48.5" y="53.5"/>
         </view>
     </objects>

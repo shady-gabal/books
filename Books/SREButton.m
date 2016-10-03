@@ -23,7 +23,7 @@
 
 
 #define k_BUTTON_ANIMATED_SIZE_MULTIPLIER 1.0275
-#define k_Button_Corner_Radius 4.
+#define k_Button_Corner_Radius 5.
 
 #pragma mark - Create
 
@@ -48,74 +48,10 @@
     return enlargedFrame;
 }
 
--(void) modifyWithText:(NSString *) text fontSize:(double) fontSize font:(NSString *) font textColor:(UIColor *) textColor rectangular:(BOOL) rectangular{
-    if (!font)
-        font = @"HelveticaNeue-Light";
-    if (!textColor)
-        textColor = [UIColor whiteColor];
-    
-    self.disabledColor = [UIColor colorWithWhite:.8f alpha:.5f];
-    self.enabledColor = textColor;
-    self.userInteractionEnabled = YES;
-    self.enabled = YES;
-    
-    [self setTitle:text forState:UIControlStateNormal];
-    [self setTitleColor:textColor forState:UIControlStateNormal];
-    [self setTitleColor:self.disabledColor forState:UIControlStateDisabled];
-    
-    if (rectangular){
-        [self makeRectangularButton];
-    }
-    
-    
-    self.titleLabel.font = [UIFont fontWithName:font size:fontSize];
-    self.titleLabel.textAlignment = NSTextAlignmentCenter;
-    self.titleLabel.shadowColor = [UIColor blackColor];
-    [self sizeToFit];
-    
-    self.layer.shadowColor = [[UIColor blackColor] colorWithAlphaComponent:.1].CGColor;
-    self.layer.shadowOffset = CGSizeMake(0., 1.);
-    //    button.layer.masksToBounds = NO;
-    self.layer.shadowRadius = 0.;
-
-
-}
-
--(void) makeRectangularButton{
-    [self addInsets];
-    
-}
-
-
--(void) addInsets{
-    CGFloat fontSize = self.titleLabel.font.pointSize;
-    double ratio = fontSize / 16.;
-    double inset = 10 * ratio;
-    
-    [self addInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
-}
-
--(void) addInsets:(UIEdgeInsets) insets{
-    self.contentEdgeInsets = insets;
-    
-//    UIColor * color = self.currentTitleColor;
-//    self.layer.borderWidth = 2.f;
-//    self.layer.borderColor = color.CGColor;
-    [self roundCorners];
-    //    }
-}
-
 -(void) roundCorners{
     self.layer.cornerRadius = k_Button_Corner_Radius;
 }
 
-+(instancetype) buttonWithText:(NSString *) text fontSize:(double) fontSize font:(NSString *) font textColor:(UIColor *) textColor rectangular:(BOOL) rectangular{
-    
-    SREButton * button = [[SREButton alloc]initWithFrame:CGRectMake(0, 0, 300, 300)];
-    [button modifyWithText:text fontSize:fontSize font:font textColor:textColor rectangular:rectangular];
-    return button;
-
-}
 
 #pragma mark - Activity Indicators
 
@@ -150,7 +86,6 @@
         
         self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:indicatorStyle];
         self.activityIndicator.center = CGPointMake(self.frame.size.width/2., self.frame.size.height/2.);
-//        self.activityIndicator.center = self.center;
     }
     
     if (!self.activityIndicator.isAnimating){
@@ -251,7 +186,6 @@
                                     self.backgroundColor = self.highlightedBackgroundColor;
 //                                self.layer.shadowOpacity = .25;
                                 if (!_animatingToEnlarged && !self.dontEnlarge){
-                                    NSLog(@"animating to enlarged...");
                                     self.frame = _enlargedFrame;
                                     
                                     _animatingToEnlarged = YES;
@@ -282,7 +216,6 @@
                                 if (!_animatingToOriginal && !self.dontEnlarge){
                                     _animatingToOriginal = YES;
                                     _animatingToEnlarged = NO;
-                                    NSLog(@"animating to original...");
                                     self.frame = _originalFrame;
                                     UIFont * font = self.titleLabel.font;
                                     self.titleLabel.font = [font fontWithSize:_originalFontSize];
@@ -299,22 +232,6 @@
         }
     }
     
-}
-
--(void) makeLayerSameColor{
-    self.layer.borderColor = self.backgroundColor.CGColor;
-}
-
-#pragma mark - Misc
-
--(void) addBorders{
-    [self addBordersWithColor:self.currentTitleColor];
-}
-
--(void) addBordersWithColor:(UIColor *) color{
-    self.layer.borderColor = color.CGColor;
-    self.layer.borderWidth = 2.f;
-    self.layer.cornerRadius = 5.;
 }
 
 

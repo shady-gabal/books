@@ -60,9 +60,9 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-ip-r14" customClass="SREButton">
                             <color key="backgroundColor" red="0.019607843140000001" green="0.45098039220000002" blue="0.76470588240000004" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="width" secondItem="gUg-ip-r14" secondAttribute="height" multiplier="75:31" id="7uA-zJ-oGm"/>
+                                <constraint firstAttribute="width" secondItem="gUg-ip-r14" secondAttribute="height" multiplier="17:6" id="5rX-ZJ-4qg"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                             <state key="normal" title="Checkout">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -74,7 +74,7 @@
                     <constraints>
                         <constraint firstItem="edd-th-MGZ" firstAttribute="top" secondItem="Mwu-KE-oVs" secondAttribute="bottom" constant="32.5" id="0Nx-vy-S1E"/>
                         <constraint firstItem="edd-th-MGZ" firstAttribute="width" secondItem="cwj-sb-ZzQ" secondAttribute="width" id="1fA-TQ-Hsv"/>
-                        <constraint firstItem="gUg-ip-r14" firstAttribute="width" secondItem="NmD-BA-PGw" secondAttribute="width" multiplier="0.4" id="2px-uj-nSM"/>
+                        <constraint firstItem="gUg-ip-r14" firstAttribute="width" secondItem="NmD-BA-PGw" secondAttribute="width" multiplier="0.5" id="2px-uj-nSM"/>
                         <constraint firstItem="edd-th-MGZ" firstAttribute="leading" secondItem="cwj-sb-ZzQ" secondAttribute="leading" id="4Um-E3-Rgr"/>
                         <constraint firstItem="Mwu-KE-oVs" firstAttribute="top" secondItem="cwj-sb-ZzQ" secondAttribute="bottom" constant="6" id="5Ul-tC-Db6"/>
                         <constraint firstItem="gUg-ip-r14" firstAttribute="centerX" secondItem="NmD-BA-PGw" secondAttribute="centerX" id="8ZF-x4-mhV"/>

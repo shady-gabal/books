@@ -27,6 +27,8 @@ class BookStore: NSObject {
     public func fetchBooks(callback: @escaping () -> Void = {() in }){
         NetworkManager.sharedInstance.networkRequestToLibrary(urlSuffix: "/books", method: NetworkManager.NetworkMethod.GET, parameters: [:], successCallback: { (responseObject:Any?) -> Void in
             
+            self.books = []
+
             if let booksArray = responseObject as? Array<Any> {
                 for bookDict in booksArray {
                     if let bookData = bookDict as? NSDictionary{

@@ -21,7 +21,7 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.checkoutButton?.layer.cornerRadius = 5
+        self.checkoutButton?.roundCorners()
         self.configure()
     }
     
@@ -72,8 +72,11 @@ class BookDetailViewController: UIViewController {
     
     @IBAction func checkoutButtonTapped(_ sender: AnyObject) {
         if User.sharedInstance.name == nil{
-            let nameController:CheckoutNameViewController = CheckoutNameViewController(withBook: self.book)
-            self.present(nameController, animated: true, completion: nil)
+            let nameController:CheckoutNameViewController = CheckoutNameViewController()
+            let nav = UINavigationController(rootViewController: nameController)
+            nav.navigationBar.isTranslucent = false
+
+            self.present(nav, animated: true, completion: nil)
         }
         else{
             checkoutBook()

@@ -72,7 +72,7 @@
 		97D2ABDD1DA1B135006D2412 /* AddBookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBookViewController.swift; sourceTree = "<group>"; };
 		97D2ABDE1DA1B135006D2412 /* AddBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddBookViewController.xib; sourceTree = "<group>"; };
 		97D628C71D9C7C0C005AABFD /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		97D628C91D9C8047005AABFD /* ObjC-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ObjC-Bridge.h"; sourceTree = "<group>"; };
+		97D628C91D9C8047005AABFD /* ObjC-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "ObjC-Bridge.h"; path = "../ObjC-Bridge.h"; sourceTree = "<group>"; };
 		97D628CA1D9C8DAA005AABFD /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		97D628CC1D9E097A005AABFD /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		97D628CD1D9E097A005AABFD /* BookDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailViewController.xib; sourceTree = "<group>"; };
@@ -143,7 +143,6 @@
 		975D7F731D9C482400D121DD = {
 			isa = PBXGroup;
 			children = (
-				97D628C91D9C8047005AABFD /* ObjC-Bridge.h */,
 				975D7F7E1D9C482400D121DD /* Books */,
 				975D7F931D9C482400D121DD /* BooksTests */,
 				975D7F9E1D9C482400D121DD /* BooksUITests */,
@@ -166,8 +165,7 @@
 		975D7F7E1D9C482400D121DD /* Books */ = {
 			isa = PBXGroup;
 			children = (
-				97D2ABDA1DA19920006D2412 /* SREButton.h */,
-				97D2ABDB1DA19920006D2412 /* SREButton.m */,
+				97D2ABE11DA1E378006D2412 /* ObjC */,
 				975D7F7F1D9C482400D121DD /* AppDelegate.swift */,
 				97D628CA1D9C8DAA005AABFD /* Book.swift */,
 				975D7FAF1D9C7AB300D121DD /* BookStore.swift */,
@@ -206,6 +204,16 @@
 				975D7FA11D9C482400D121DD /* Info.plist */,
 			);
 			path = BooksUITests;
+			sourceTree = "<group>";
+		};
+		97D2ABE11DA1E378006D2412 /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				97D628C91D9C8047005AABFD /* ObjC-Bridge.h */,
+				97D2ABDA1DA19920006D2412 /* SREButton.h */,
+				97D2ABDB1DA19920006D2412 /* SREButton.m */,
+			);
+			name = ObjC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
